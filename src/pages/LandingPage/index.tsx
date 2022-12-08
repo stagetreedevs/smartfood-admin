@@ -5,7 +5,7 @@ function LandingPage() {
     return (
         <div className='land'>
             <header className='header'>
-                <img src="logo.svg" alt="Logo" />
+                <img src="logotipo.svg" alt="Logo" />
                 <div className='headContent'>
                     <p>Entregador</p>
                     <p>Meu negócio</p>
@@ -24,7 +24,7 @@ function LandingPage() {
             </div>
             <hr />
             <div className="footer">
-            <img src="logo.svg" alt="Logo" className='logoFooter' />
+            <img src="logotipo.svg" alt="Logo" className='logoFooter' />
                 <div className='footerContent'>
                     <p>Social</p>
                     <div className='icons'>
