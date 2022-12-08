@@ -1,9 +1,10 @@
 import React from 'react';
+import './style.scss'
 
 function Home(){
     return(
         <>
-        <p>aaaa</p>
+        <p className='home'>Home</p>
         </>
     )
 }
