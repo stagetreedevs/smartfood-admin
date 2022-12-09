@@ -5,7 +5,9 @@ function LandingPage() {
     return (
         <div className='land'>
             <header className='header'>
-                <img src="logotipo.svg" alt="Logo" />
+                <a href="/">
+                    <img src="logotipo.svg" alt="Logo" />
+                </a>
                 <div className='headContent'>
                     <p>Entregador</p>
                     <p>Meu negócio</p>
@@ -17,18 +19,20 @@ function LandingPage() {
                         inteligente</p>
                     <span>Seus clientes a um clique do seu
                         negocio</span>
-                <div className="divider"/>
-                <div className="button">Começar</div>
+                    <div className="divider" />
+                    <div className="button">Começar</div>
                 </div>
-                <img src="LandingIllustration.svg" alt="LandingIllustration" />
+                <img id='landImage' src="LandingIllustration.svg" alt="LandingIllustration" />
             </div>
             <hr />
             <div className="footer">
-            <img src="logotipo.svg" alt="Logo" className='logoFooter' />
+                <a href="/">
+                    <img src="logotipo.svg" alt="Logo" className='logoFooter' />
+                </a>
                 <div className='footerContent'>
                     <p>Social</p>
                     <div className='icons'>
-                    <img src="facebook.svg" alt="facebook" /><img src="instagram.svg" alt="instagram" />
+                        <img src="facebook.svg" id='face' alt="facebook" /><img src="instagram.svg" id='insta' alt="instagram" />
                     </div>
                 </div>
             </div>
