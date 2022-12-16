@@ -2,23 +2,29 @@ import React, { useEffect, useState } from 'react';
 import './style.scss'
 import { TextField } from '@mui/material';
 import axios from 'axios';
+import { Api } from '../../services/api';
+import { useAuth } from '../../context/AuthProvider/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+    const auth = useAuth()
+    const navigate = useNavigate()
+
     const [form, setForm] = useState({
         email: '',
         password: ''
     })
     
-    function login(form: any) {
-        console.log(form)
-        axios.post("http://localhost:8000/auth/login/location", form)
-            .then(res => {
-                localStorage.setItem('Authorization', `Bearer ${res.data.token}`)
-                window.location.href = '/home'
-            })
-            .catch(err =>{
-                alert('Email ou senha não conferem, confirme se estão corretos')
-                console.log(err)})
+   async function login(form: any) {
+
+    try {
+        await auth.authenticate(form.email, form.password)
+
+        navigate('/Private')
+
+    } catch (error) {
+        alert("Algo deu errado... verifique os dados e tente novamente.")
+    }
     }
 
     return (

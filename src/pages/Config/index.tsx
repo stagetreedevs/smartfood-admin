@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthProvider/useAuth';
 import './style.scss'
 
-function Home() {
+function Config() {
     const auth = useAuth()
    
 
     return (
         <div>
             <button onClick={() => auth.logout()}>sair</button>
-            home
+            Config
         </div>
     )
 }
 
-export default Home
+export default Config
