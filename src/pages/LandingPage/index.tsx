@@ -9,8 +9,8 @@ function LandingPage() {
                     <img src="logotipo.svg" alt="Logo" />
                 </a>
                 <div className='headContent'>
-                    <p>Entregador</p>
-                    <p>Meu negócio</p>
+                    <a href='/'><p>Entregador</p></a>
+                    <a href='/Login'><p>Meu negócio</p></a>
                 </div>
             </header>
             <div className='body'>
@@ -20,7 +20,7 @@ function LandingPage() {
                     <span>Seus clientes a um clique do seu
                         negocio</span>
                     <div className="divider" />
-                    <div className="button">Começar</div>
+                    <div className="button"> Começar</div>
                 </div>
                 <img id='landImage' src="LandingIllustration.svg" alt="LandingIllustration" />
             </div>
