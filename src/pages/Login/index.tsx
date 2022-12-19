@@ -14,17 +14,49 @@ function Login() {
         email: '',
         password: ''
     })
-    
-   async function login(form: any) {
 
-    try {
-        await auth.authenticate(form.email, form.password)
+    const log = <div>
+    <h1>Entre no seu estabelecimento</h1>
+    <div className="form">
+        <TextField id="outlined-basic" label="Email" variant="outlined" onChange={(e) => {
+            setForm({
+                ...form,
+                email: e.target.value
+            })
+        }} />
+        <TextField id="outlined-basic" label="Password" variant="outlined" onChange={(e) => {
+            setForm({
+                ...form,
+                password: e.target.value
+            })
+        }} />
+        <div className="buttons">
+            <div className="button" onClick={() => {
+                if (form.email === "") {
+                    alert('Digite um email')
+                } else if (form.password === "") {
+                    alert('Digite uma senha')
+                } else {
+                    login(form)
+                }
+            }}>
+                <p>começar</p>
+            </div>
+            <a href="/registro">Cadastre-se</a>
+        </div>
+    </div>
+</div>
 
-        navigate('/Private')
+    async function login(form: any) {
 
-    } catch (error) {
-        alert("Algo deu errado... verifique os dados e tente novamente.")
-    }
+        try {
+            await auth.authenticate(form.email, form.password)
+
+            navigate('/Private')
+
+        } catch (error) {
+            alert("Algo deu errado... verifique os dados e tente novamente.")
+        }
     }
 
     return (
@@ -35,40 +67,12 @@ function Login() {
                 </a>
                 <div className='headContent'>
                     <a href='/'><p>Entregador</p></a>
-                    <a href='/Login'><p>Meu negócio</p></a>
+                    <a href='/Login'><p id='select'>Meu negócio</p></a>
                 </div>
             </header>
             <div className='bodyLogin'>
                 <div className="content">
-                    <h1>Entre no seu estabelecimento</h1>
-                    <div className="form">
-                        <TextField id="outlined-basic" label="Email" variant="outlined" onChange={(e) => {
-                            setForm({
-                                ...form,
-                                email: e.target.value
-                            })
-                        }} />
-                        <TextField id="outlined-basic" label="Password" variant="outlined" onChange={(e) => {
-                            setForm({
-                                ...form,
-                                password: e.target.value
-                            })
-                        }} />
-                        <div className="buttons">
-                            <div className="button" onClick={() => {
-                                if(form.email === ""){
-                                    alert('Digite um email')
-                                } else if(form.password === ""){
-                                    alert('Digite uma senha')
-                                } else {
-                                    login(form)
-                                }
-                            }}>
-                                <p>começar</p>
-                            </div>
-                            <a href="/">Cadastre-se</a>
-                        </div>
-                    </div>
+                    {log}
                 </div>
                 <img id='LoginImage' src="City.svg" alt="LoginIllustration" />
             </div>
