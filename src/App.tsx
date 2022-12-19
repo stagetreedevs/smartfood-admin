@@ -7,12 +7,14 @@ import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Config from './pages/Config';
+import { useAuth } from './context/AuthProvider/useAuth';
 import Register from './pages/Register';
 
 function App() {
+  const auth = useAuth()
   setInterval(() =>{
-    alert()
-  }, 1500)
+    auth.logout()
+  }, 300000)
   return (
     <AuthProvider>
       <BrowserRouter>
