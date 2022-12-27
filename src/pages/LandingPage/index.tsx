@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.scss'
 
 function LandingPage() {
+    const navigate = useNavigate()
     return (
         <div className='land'>
             <header className='header'>
@@ -20,7 +22,7 @@ function LandingPage() {
                     <span>Seus clientes a um clique do seu
                         negocio</span>
                     <div className="divider" />
-                    <div className="button"> Começar</div>
+                    <div className="button" onClick={() => navigate('/login')}> Começar</div>
                 </div>
                 <img id='landImage' src="LandingIllustration.svg" alt="LandingIllustration" />
             </div>

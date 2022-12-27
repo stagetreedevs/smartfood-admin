@@ -5,44 +5,54 @@ import axios from 'axios';
 import { Api } from '../../services/api';
 import { useAuth } from '../../context/AuthProvider/useAuth';
 import { useNavigate } from 'react-router-dom';
+import { RadioButton } from 'primereact/radiobutton';
 
 function Register() {
     const auth = useAuth()
     const navigate = useNavigate()
-
+    const a: any = {}
+    const [address, setAddress] = useState({
+        cidade: '',
+        bairro: '',
+        rua: '',
+        numero: '',
+        cep: ''
+    })
     const [form, setForm] = useState({
         email: '',
         password: '',
         confirmPassword: '',
         name: '',
-        establishment: 'comercial',
-        image: 'a'
+        establishment: '',
+        image: a,
+        address: address
     })
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(1)
 
     const page1 = <div>
-        <h1>Entre no seu estabelecimento</h1>
+        <h1>Crie uma conta para
+            o seu estabelecimento...</h1>
         <div className="form">
-            <TextField id="outlined-basic" label="Email" variant="outlined" onChange={(e) => {
+            <TextField id="outlined-basic" value={form.email} label="Email" variant="outlined" onChange={(e) => {
                 setForm({
                     ...form,
                     email: e.target.value
                 })
             }} />
-            <TextField id="outlined-basic" label="Password" variant="outlined" onChange={(e) => {
+            <TextField id="outlined-basic" value={form.password} label="Password" variant="outlined" onChange={(e) => {
                 setForm({
                     ...form,
                     password: e.target.value
                 })
             }} />
-            <TextField id="outlined-basic" label="Confirm Password" variant="outlined" onChange={(e) => {
+            <TextField id="outlined-basic" value={form.confirmPassword} label="Confirm Password" variant="outlined" onChange={(e) => {
                 setForm({
                     ...form,
                     confirmPassword: e.target.value
                 })
             }} />
             <div className="buttons">
-                <div className="button" onClick={() => setVisible(false)}>
+                <div className="button" onClick={() => setVisible(2)}>
                     <p>Proxíma</p>
                 </div>
             </div>
@@ -50,43 +60,132 @@ function Register() {
     </div>
 
     const page2 = <div>
-        <h1>Entre no seu estabelecimento</h1>
+        <h1>Mais alguns detalhes
+            sobre o seu negócio...</h1>
         <div className="form">
-            <TextField id="outlined-basic" label="Nome" variant="outlined" onChange={(e) => {
+            <img className='back' src="arrow_back.svg" alt="back" onClick={() => setVisible(1)} />
+            <TextField id="outlined-basic" value={form.name} label="Nome Do Estabelecimento" variant="outlined" onChange={(e) => {
                 setForm({
                     ...form,
                     name: e.target.value
                 })
             }} />
-            <Radio
-                checked={form.establishment === 'comercial'}
-                onChange={() => setForm({
-                    ...form,
-                    establishment: 'comercial'
-                })}
-                value="comercial"
-                name="radio-buttons"
-                inputProps={{ 'aria-label': 'A' }}
-            />
-            <Radio
-                checked={form.establishment === 'estabelecimento'}
-                onChange={() => setForm({
-                    ...form,
-                    establishment: 'estabelecimento'
-                })}
-                value="estabelecimento"
-                name="radio-buttons"
-                inputProps={{ 'aria-label': 'B' }}
-            />
+            <div>
+                <label htmlFor="arquivo" className='label'>
+                    <p>Adicione uma imagem para</p>
+                    <p>representar seu estabelecimento</p>
+                    <img src="plusIcon.svg" alt="+" />
+                </label>
+                <input type="file" accept='image/*' name="arquivo" id="arquivo" onChange={(e) => {
+                    const file = e.target.files
+
+                    const reader = new FileReader();
+                
+                    reader.onload = (file: any) => {
+                        let base64 = file.target.result
+                        setForm({
+                            ...form,
+                            image: base64
+                        })
+                    }
+                    if (file) {
+                      reader.readAsDataURL(file[0]);
+                    }
+                    
+                }} />
+            </div>
+            <p>Seu estabelecimento é?</p>
+            <div className="radio">
+                <div className="field-radiobutton">
+                    <RadioButton inputId="establishment" name="establishment" value="Comercial" onChange={(e) => {
+                        setForm({
+                            ...form,
+                            establishment: e.value
+                        })
+                    }} checked={form.establishment === 'Comercial'} />
+                    <label htmlFor="establishment">Comercial</label>
+                </div>
+                <div className="field-radiobutton">
+                    <RadioButton inputId="establishment2" name="establishment" value="Restaurante" onChange={(e) => {
+                        setForm({
+                            ...form,
+                            establishment: e.value
+                        })
+                    }} checked={form.establishment === 'Restaurante'} />
+                    <label htmlFor="establishment2">Restaurante</label>
+                </div>
+            </div>
             <div className="buttons">
                 <div className="button" onClick={() => {
-                    if (form.email === "") {
-                        alert('Digite um email')
-                    } else if (form.password === "") {
-                        alert('Digite uma senha')
-                    } else {
-                        login(form)
-                    }
+                    setVisible(3)
+                }}>
+                    <p>Proxíma</p>
+                </div>
+            </div>
+        </div>
+    </div >
+
+    const page3 = <div>
+        <h1>Agora precisamos do seu endereço...</h1>
+        <div className="form">
+            <img className='back' src="arrow_back.svg" alt="back" onClick={() => setVisible(2)} />
+            <TextField id="outlined-basic" label="Cidade" variant="outlined" onChange={(e) => {
+                setAddress({
+                    ...address,
+                        cidade: e.target.value
+                        
+                })
+                setForm({
+                    ...form,
+                    address: address
+                })
+            }} />
+            <TextField id="outlined-basic" label="Rua" variant="outlined" onChange={(e) => {
+                setAddress({
+                    ...address,
+                    rua: e.target.value
+                })
+                setForm({
+                    ...form,
+                    address: address
+                })
+            }} />
+            <TextField id="outlined-basic" label="Bairro" variant="outlined" onChange={(e) => {
+                setAddress({
+                    ...address,
+                    bairro: e.target.value
+                })
+                setForm({
+                    ...form,
+                    address: address
+                })
+            }} />
+            <div className="grid">
+                <TextField id="outlined-basic" label="Numero" variant="outlined" onChange={(e) => {
+                    setAddress({
+                        ...address,
+                        numero: e.target.value
+                    })
+                    setForm({
+                        ...form,
+                        address: address
+                    })
+                }} />
+                <TextField id="outlined-basic" label="Cep" variant="outlined" onChange={(e) => {
+                    setAddress({
+                        ...address,
+                        cep: e.target.value
+                    })
+
+                    setForm({
+                        ...form,
+                        address: address
+                    })
+                }} />
+            </div>
+            <div className="buttons">
+                <div className="button" onClick={() => {
+                    login(form)
                 }}>
                     <p>Registrar</p>
                 </div>
@@ -97,6 +196,7 @@ function Register() {
     async function login(form: any) {
 
         try {
+            console.log(form)
             await Api.post("/auth/register/location", form).then(app => console.log(app))
 
             navigate('/login')
@@ -119,7 +219,9 @@ function Register() {
             </header>
             <div className='bodyLogin'>
                 <div className="content">
-                    {visible ? page1 : page2}
+                    {visible === 1 && page1}
+                    {visible === 2 && page2}
+                    {visible === 3 && page3}
                 </div>
                 <img id='LoginImage' src="City.svg" alt="LoginIllustration" />
             </div>

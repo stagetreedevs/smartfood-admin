@@ -9,12 +9,11 @@ import Home from './pages/Home';
 import Config from './pages/Config';
 import { useAuth } from './context/AuthProvider/useAuth';
 import Register from './pages/Register';
+import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css"; 
 
 function App() {
-  const auth = useAuth()
-  setInterval(() =>{
-    auth.logout()
-  }, 300000)
   return (
     <AuthProvider>
       <BrowserRouter>
