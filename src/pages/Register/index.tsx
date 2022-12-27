@@ -24,7 +24,7 @@ function Register() {
         confirmPassword: '',
         name: '',
         establishment: '',
-        image: a,
+        image: '',
         address: address
     })
     const [visible, setVisible] = useState(1)
@@ -80,7 +80,7 @@ function Register() {
                     const file = e.target.files
 
                     const reader = new FileReader();
-                
+
                     reader.onload = (file: any) => {
                         let base64 = file.target.result
                         setForm({
@@ -89,9 +89,9 @@ function Register() {
                         })
                     }
                     if (file) {
-                      reader.readAsDataURL(file[0]);
+                        reader.readAsDataURL(file[0]);
                     }
-                    
+
                 }} />
             </div>
             <p>Seu estabelecimento é?</p>
@@ -132,8 +132,8 @@ function Register() {
             <TextField id="outlined-basic" label="Cidade" variant="outlined" onChange={(e) => {
                 setAddress({
                     ...address,
-                        cidade: e.target.value
-                        
+                    cidade: e.target.value
+
                 })
                 setForm({
                     ...form,
@@ -193,13 +193,24 @@ function Register() {
         </div>
     </div>
 
+    const page4 = <div className='complete'>
+        <h1>Parabéns, seu estabelecimento
+            foi cadastrado com sucesso!!!</h1>
+        <div className="buttons">
+            <div className="button" onClick={() => {
+                navigate('/login')
+            }}>
+                <p>Acesse agora sua Home!</p>
+
+            </div>
+        </div>
+    </div>
+
     async function login(form: any) {
 
         try {
-            console.log(form)
             await Api.post("/auth/register/location", form).then(app => console.log(app))
-
-            navigate('/login')
+            setVisible(4)
 
         } catch (error) {
             alert("Algo deu errado... verifique os dados e tente novamente.")
@@ -222,6 +233,7 @@ function Register() {
                     {visible === 1 && page1}
                     {visible === 2 && page2}
                     {visible === 3 && page3}
+                    {visible === 4 && page4}
                 </div>
                 <img id='LoginImage' src="City.svg" alt="LoginIllustration" />
             </div>
