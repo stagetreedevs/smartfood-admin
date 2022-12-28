@@ -224,7 +224,7 @@ function Register() {
                     <img src="logotipo.svg" alt="Logo" />
                 </a>
                 <div className='headContent'>
-                    <a href='/'><p>Entregador</p></a>
+                    <a href='/RegistroEntregador'><p>Entregador</p></a>
                     <a href='/Login'><p id='select'>Meu negócio</p></a>
                 </div>
             </header>
