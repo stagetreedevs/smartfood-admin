@@ -1,20 +1,21 @@
-import React from 'react';
-import './App.scss';
-import { AuthProvider } from './context/AuthProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Protect from './pages/Protect';
+import LandingPageDelivery from './pages/LandingPageDelivery';
+import { useAuth } from './context/AuthProvider/useAuth';
+import { AuthProvider } from './context/AuthProvider';
+import HomeDelivery from './pages/HomeDelivery';
 import LandingPage from './pages/LandingPage';
+import Register from './pages/Register';
+import Delivery from './pages/Delivery';
+import Protect from './pages/Protect';
+import Dash from './components/Dash';
+import Config from './pages/Config';
 import Login from './pages/Login';
 import Home from './pages/Home';
-import Config from './pages/Config';
-import { useAuth } from './context/AuthProvider/useAuth';
-import Register from './pages/Register';
-import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
-import "primereact/resources/primereact.min.css";                  //core css
-import "primeicons/primeicons.css"; 
-import Delivery from './pages/Delivery';
-import LandingPageDelivery from './pages/LandingPageDelivery';
-import HomeDelivery from './pages/HomeDelivery';
+import React from 'react';
+import './App.scss';
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
 
 function App() {
   return (
@@ -28,7 +29,9 @@ function App() {
             <Protect>
               <Home />
             </Protect>
-          } />
+          }>
+            <Route path='dash/' element={<Dash />} />
+          </Route>
           <Route path="/HomeDelivery" element={
             <Protect>
               <HomeDelivery />

@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
 
         setUser(payload)
         setLocalStorage(payload)
-        window.location.href = '/home'
+        window.location.href = '/home/dash'
     }
 
     async function logout() {

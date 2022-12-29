@@ -81,7 +81,7 @@ function Delivery() {
                     <a href='/Login'><p>Meu negócio</p></a>
                 </div>
             </header>
-            <div className='bodyLogin'>
+            <div className='bodyDelivery'>
                 <div className="content">
                     {log}
                 </div>

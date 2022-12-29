@@ -35,3 +35,12 @@ a{
 .css-14s5rfu{
   color: #1b1b1b !important;
 }
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: rgb(0 0 0 / 10%) !important;
+}
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+  background: #141618 !important;
+}
+.p-inputswitch .p-inputswitch-slider:before {
+  background: #f59e0b !important;
+}
