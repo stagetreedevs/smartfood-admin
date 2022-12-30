@@ -8,7 +8,7 @@ import Register from './pages/Register';
 import Delivery from './pages/Delivery';
 import Protect from './pages/Protect';
 import Dash from './components/Dash';
-import Config from './pages/Config';
+import Settings from './components/Settings';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import React from 'react';
@@ -16,6 +16,7 @@ import './App.scss';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
+import Requests from './components/Requests';
 
 function App() {
   return (
@@ -31,15 +32,12 @@ function App() {
             </Protect>
           }>
             <Route path='dash/' element={<Dash />} />
+            <Route path="Settings/" element={<Settings />} />
+            <Route path='requests/' element={<Requests />} />
           </Route>
           <Route path="/HomeDelivery" element={
             <Protect>
               <HomeDelivery />
-            </Protect>
-          } />
-          <Route path="/config" element={
-            <Protect>
-              <Config />
             </Protect>
           } />
           <Route path="/login" element={<Login />} />

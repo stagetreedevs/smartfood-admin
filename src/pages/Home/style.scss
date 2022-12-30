@@ -21,7 +21,10 @@
         flex-direction: column;
         border-bottom: hsla(0, 0%, 100%, 0.5) solid 1px;
         width: 135%;
-        padding-bottom: .5rem;
+        padding-bottom: 0.5rem;
+      }
+      .button {
+        cursor: pointer;
       }
     }
     .group2 {
@@ -30,16 +33,15 @@
       justify-content: space-between;
       flex-direction: column;
       height: 25%;
-      .switch{
+      .switch {
         height: 1.5rem;
       }
     }
   }
   .homeBody {
-    background-color: #e5e5e5;
     width: 94%;
+    padding: 2.5rem;
+    background: #f1f1f1;
   }
-  img {
-    cursor: pointer;
-  }
+  
 }

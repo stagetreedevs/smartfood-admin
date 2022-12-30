@@ -66,7 +66,7 @@ function Login() {
                     <img src="logotipo.svg" alt="Logo" />
                 </a>
                 <div className='headContent'>
-                    <a href='/Registroentregador'><p>Entregador</p></a>
+                    <a href='/delivery'><p>Entregador</p></a>
                     <a href='/Login'><p id='select'>Meu negócio</p></a>
                 </div>
             </header>
