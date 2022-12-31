@@ -33,8 +33,22 @@
       justify-content: space-between;
       flex-direction: column;
       height: 25%;
+      cursor: pointer;
       .switch {
-        height: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .25rem;
+        p {
+          margin: 0;
+          font-family: "Josefin Sans", sans-serif;
+          font-weight: 500;
+          font-size: 1rem;
+          color: #e5e5e5;
+        }
+        #alt {
+          height: 1.5rem;
+        }
       }
     }
   }
@@ -43,5 +57,4 @@
     padding: 2.5rem;
     background: #f1f1f1;
   }
-  
 }

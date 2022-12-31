@@ -17,6 +17,8 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import Requests from './components/Requests';
+import Stock from './components/Stock';
+import Finance from './components/Finance';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
             <Route path='dash/' element={<Dash />} />
             <Route path="Settings/" element={<Settings />} />
             <Route path='requests/' element={<Requests />} />
+            <Route path='box/' element={<Stock />} />
+            <Route path='finance/' element={<Finance />} />
           </Route>
           <Route path="/HomeDelivery" element={
             <Protect>

@@ -1,67 +1,31 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './style.scss'
 
 const Requests = () => {
-    const [list, setList] = useState([
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
-        },
-        {
-            name: 'pedido',
+    const [list, setList] = useState<any>([])
+    useEffect(() => {
+        const req = async () => {
+            const data = await axios('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.data)
+
+                setList(data)
         }
-    ])
+
+        req()
+
+    }, [])
+
 
     return (
         <div className="requests">
             <h1>Pedidos</h1>
             <div className="body">
                 {
-                    list.map(req => (
+                    list.map((item:any) => (
                         <div className="request">
                             <div className='group'>
-                                <p>{req.name}</p>
+                                <p>{item.name}</p>
                             </div>
                             <div className='buttons'>
                                 <div className="button1">
