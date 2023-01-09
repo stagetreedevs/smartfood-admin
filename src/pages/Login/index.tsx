@@ -74,7 +74,6 @@ function Login() {
                 <div className="content">
                     {log}
                 </div>
-                <img id='LoginImage' src="City.svg" alt="LoginIllustration" />
             </div>
             <hr />
             <div className="footer">

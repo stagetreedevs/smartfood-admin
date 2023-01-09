@@ -29,7 +29,9 @@ function Stock() {
         }
 
         req()
-
+        if(window.outerWidth <= 560){
+            setItensPage(3)
+        }
     }, [])
     return (
         <div className='stock'>

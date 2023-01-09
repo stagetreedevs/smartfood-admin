@@ -63,7 +63,6 @@ function Register() {
         <h1>Mais alguns detalhes
             sobre o seu negócio...</h1>
         <div className="form">
-            <img className='back' src="arrow_back.svg" alt="back" onClick={() => setVisible(1)} />
             <TextField id="outlined-basic" value={form.name} label="Nome Do Estabelecimento" variant="outlined" onChange={(e) => {
                 setForm({
                     ...form,
@@ -116,10 +115,15 @@ function Register() {
                 </div>
             </div>
             <div className="buttons">
-                <div className="button" onClick={() => {
+            <div className="button" onClick={() => {
                     setVisible(3)
                 }}>
                     <p>Proxíma</p>
+                </div>
+                <div className="button" onClick={() => {
+                    setVisible(1)
+                }}>
+                    <p>Voltar</p>
                 </div>
             </div>
         </div>
@@ -128,7 +132,6 @@ function Register() {
     const page3 = <div>
         <h1>Agora precisamos do seu endereço...</h1>
         <div className="form">
-            <img className='back' src="arrow_back.svg" alt="back" onClick={() => setVisible(2)} />
             <TextField id="outlined-basic" label="Cidade" variant="outlined" onChange={(e) => {
                 setAddress({
                     ...address,
@@ -189,6 +192,11 @@ function Register() {
                 }}>
                     <p>Registrar</p>
                 </div>
+                <div className="button" onClick={() => {
+                    setVisible(2)
+                }}>
+                    <p>Voltar</p>
+                </div>
             </div>
         </div>
     </div>
@@ -235,7 +243,6 @@ function Register() {
                     {visible === 3 && page3}
                     {visible === 4 && page4}
                 </div>
-                <img id='LoginImage' src="City.svg" alt="LoginIllustration" />
             </div>
             <hr />
             <div className="footer">

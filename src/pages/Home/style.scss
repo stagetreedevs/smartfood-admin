@@ -2,6 +2,7 @@
   display: flex;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   .menu {
     width: 6%;
     background: #658280;
@@ -56,5 +57,74 @@
     width: 94%;
     padding: 2.5rem;
     background: #f1f1f1;
+  }
+}
+@media (width <= 560px) {
+  .home {
+    display: inline;
+    width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+    .menu {
+      width: 100%;
+      height: auto;
+      background: #658280;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1rem;
+      position: absolute;
+      .group1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+        .divider {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          border: none;
+          border-right: hsla(0, 0%, 100%, 0.5) solid 1px;
+          height: 90%;
+          width: auto;
+          padding-bottom: 0.5rem;
+        }
+        .button {
+          cursor: pointer;
+        }
+      }
+      .group2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 30%;
+        height: auto;
+        cursor: pointer;
+        .switch {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: .25rem;
+          p {
+            margin: 0;
+            font-family: "Josefin Sans", sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #e5e5e5;
+          }
+          #alt {
+            height: 1.5rem;
+          }
+        }
+      }
+    }
+    .homeBody {
+      width: 100%;
+      height: auto;
+      padding: 30% 2.5rem 2.5rem 2.5rem;
+      background: #f1f1f1;
+    }
   }
 }
