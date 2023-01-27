@@ -217,7 +217,7 @@ function Register() {
     async function login(form: any) {
 
         try {
-            await Api.post("/auth/register/location", form).then(app => console.log(app))
+            await Api.post("auth/register/location", form).then(app => console.log(app))
             setVisible(4)
 
         } catch (error) {
